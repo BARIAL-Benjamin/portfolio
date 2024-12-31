@@ -1,0 +1,6 @@
+# Autoriser tous les robots à explorer le site
+User-agent: *
+Allow: /
+
+# Spécifier l'emplacement du fichier sitemap
+Sitemap: https://benjamin-pro.com/sitemap.xml
