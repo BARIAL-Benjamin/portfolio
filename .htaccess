@@ -3,11 +3,11 @@ Options -Indexes
 RewriteEngine On
 
 # Gestion des erreurs courantes
-ErrorDocument 400 /400.html
-ErrorDocument 401 /401.html
-ErrorDocument 403 /403.html
-ErrorDocument 404 /404.html
-ErrorDocument 500 /500.html
+ErrorDocument 400 /errors-page/400.html
+ErrorDocument 401 /errors-page/401.html
+ErrorDocument 403 /errors-page/403.html
+ErrorDocument 404 /errors-page/404.html
+ErrorDocument 500 /errors-page/500.html
 
 # Bloquer l'accès aux fichiers .scss uniquement dans le dossier "css"
 RewriteRule ^css/.*\.scss$ - [F,L]
