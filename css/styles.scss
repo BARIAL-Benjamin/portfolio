@@ -1,0 +1,108 @@
+@use "_reset.scss";
+@import "_highline.scss";
+@import "_paper.scss";
+@import "_stamp.scss";
+
+@font-face {
+    font-family: "Veteran TypeWriter";
+    src:
+        url("/fonts/veteran_typewriter.ttf"),
+        local("veteran_typewriter.ttf") format("ttf");
+}
+
+$mainFont: "Veteran TypeWriter", "Courier New", Courier, monospace;
+$bgColor: #eee;
+$paperColor: #fff;
+$borderSize: 30px;
+$borderDir: left;
+$stampColor: #ec1313;
+
+@mixin a4-dimensions {
+    @if ($borderDir == top) {
+        width: calc(297mm - $borderSize);
+        height: 210mm;
+    } @else if ($borderDir == left) {
+        width: calc(210mm - $borderSize);
+        height: 297mm;
+    }
+}
+
+@mixin font-settings($font-family, $font-size: 16px, $line-height: 1) {
+    font-family: $font-family;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+html,
+body {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    @include font-settings($mainFont);
+    background: $bgColor;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    @include a4-dimensions;
+    margin: auto;
+    padding: 20mm;
+    box-shadow:
+        0 0 5px #0001,
+        0 0 15px #0005,
+        0 0 30px #000a;
+    border-radius: 5px;
+    @include paper($paperColor, $bgColor, $borderSize, $borderDir);
+    background: $bgColor;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+}
+
+span {
+    &.mark {
+        @include highlight;
+    }
+    &.stamp {
+        @include stamp(24px, $stampColor);
+        &.big {
+            font-size: 32px;
+        }
+        &.small {
+            font-size: 16px;
+        }
+    }
+    &.underline {
+        text-decoration: underline;
+    }
+    &.bold {
+        font-weight: bold;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    &::after {
+        content: " :";
+    }
+}
+
+h4 {
+    margin: 0.5em 0;
+    &::before {
+        content: "(U). ";
+    }
+}
+
+p {
+    text-align: justify;
+}

@@ -1,0 +1,121 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@keyframes slide-out {
+  to {
+    transform: scaleX(0);
+  }
+}
+/**/
+@font-face {
+  font-family: "Veteran TypeWriter";
+  src: url("/fonts/veteran_typewriter.ttf"), local("veteran_typewriter.ttf") format("ttf");
+}
+html,
+body {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Veteran TypeWriter", "Courier New", Courier, monospace;
+  font-size: 16px;
+  line-height: 1;
+  background: #eee;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  width: 202.0625mm;
+  height: 297mm;
+  margin: auto;
+  padding: 20mm;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.0666666667), 0 0 15px rgba(0, 0, 0, 0.3333333333), 0 0 30px rgba(0, 0, 0, 0.6666666667);
+  border-radius: 5px;
+  border-color: #eee;
+  border-left: 30px solid #eee;
+  -o-border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52"><path fill="#fff" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>') 5% 100% repeat;
+     border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52"><path fill="#fff" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>') 5% 100% repeat;
+  border-image-width: 0 0 0 30px;
+  background: #eee;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+span.mark {
+  position: relative;
+}
+span.mark:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0 -0.4em;
+  padding: 0.1em 0.4em;
+  border-radius: 0.5em 0.3em;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0.95));
+  animation: slide-out 0.5s 2s forwards;
+}
+span.stamp {
+  font-size: 24px;
+  color: #ec1313;
+  text-transform: uppercase;
+  border: 2px solid #ec1313;
+  padding: 5px 10px;
+  margin: 0 auto;
+  border-radius: 0.25rem;
+  -webkit-mask-image: url("/assets/grunge.png");
+  -webkit-mask-size: 944px 604px;
+  -webkit-mask-position: 2rem 3rem;
+  mask-image: url("/assets/grunge.png");
+  mask-size: 944px 604px;
+  mask-position: 2rem 3rem;
+}
+span.stamp.big {
+  font-size: 32px;
+}
+span.stamp.small {
+  font-size: 16px;
+}
+span.underline {
+  text-decoration: underline;
+}
+span.bold {
+  font-weight: bold;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-transform: uppercase;
+}
+h1::after,
+h2::after,
+h3::after,
+h4::after,
+h5::after,
+h6::after {
+  content: " :";
+}
+
+h4 {
+  margin: 0.5em 0;
+}
+h4::before {
+  content: "(U). ";
+}
+
+p {
+  text-align: justify;
+}/*# sourceMappingURL=styles.css.map */

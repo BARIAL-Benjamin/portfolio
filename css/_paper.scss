@@ -1,0 +1,26 @@
+/**/
+@mixin paper($paperColor, $bgColor, $borderSize, $direction: left) {
+    $borderImage: none;
+    $borderImageWidth: 0;
+
+    @if ($direction == "top") {
+        $borderImage: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52" transform="rotate(90)"><path fill="#{$paperColor}" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>');
+        $borderImageWidth: $borderSize 0 0 0;
+    } @else if ($direction == "right") {
+        $borderImage: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52" transform="rotate(180)"><path fill="#{$paperColor}" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>');
+        $borderImageWidth: 0 $borderSize 0 0;
+    } @else if ($direction == "bottom") {
+        $borderImage: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52" transform="rotate(-90)"><path fill="#{$paperColor}" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>');
+        $borderImageWidth: 0 0 $borderSize 0;
+    } @else if ($direction == "left") {
+        $borderImage: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52"><path fill="#{$paperColor}" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>');
+        $borderImageWidth: 0 0 0 $borderSize;
+    } @else {
+        @error "Invalid direction #{$direction} for paper mixin";
+    }
+
+    border-color: $bgColor;
+    border-#{$direction}: $borderSize solid $bgColor;
+    border-image: $borderImage 5% 100% repeat;
+    border-image-width: $borderImageWidth;
+}
