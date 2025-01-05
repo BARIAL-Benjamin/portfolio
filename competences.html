@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="module" src="/js/app.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <h2>Ajouter une compétence</h2>
+        <form id="skillsForm">
+            <label for="name">Nom de la compétence:</label>
+            <input type="text" id="name" name="name">
+            <br>
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+            <br>
+            <label for="level">Niveau:</label>
+            <select id="level" name="level">
+                <option value="Débutant">Débutant</option>
+                <option value="Intermédiaire">Intermédiaire</option>
+                <option value="Avancé">Avancé</option>
+            </select>
+            <br>
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <p id="skillsInfo"></p>
+
+        <h2>Liste des compétences</h2>
+        <ul id="skillsList"></ul>
+    </main>
+</body>
+
+</html>

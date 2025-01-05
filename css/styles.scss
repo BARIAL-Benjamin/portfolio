@@ -33,6 +33,15 @@ $stampColor: #ec1313;
     line-height: $line-height;
 }
 
+@mixin rotate($segment:24) {
+    @for $i from 1 through $segment {
+        $angle: $i * calc(360 / $segment);
+        .rot-#{$angle} {
+            transform: rotateZ(#{if($angle > 180, $angle - 360, $angle)}deg);
+        }
+    }
+}
+
 html,
 body {
     display: flex;
@@ -49,9 +58,9 @@ main {
     margin: auto;
     padding: 20mm;
     box-shadow:
-        0 0 5px #0001,
-        0 0 15px #0005,
-        0 0 30px #000a;
+        0 0 5px rgba(0, 0, 0, 0.07),
+        0 0 15px rgba(0, 0, 0, 0.34),
+        0 0 30px rgba(0, 0, 0, 0.67);
     border-radius: 5px;
     @include paper($paperColor, $bgColor, $borderSize, $borderDir);
     background: $bgColor;
@@ -106,3 +115,8 @@ h4 {
 p {
     text-align: justify;
 }
+
+// 1, 2, 3, 4, 5, 6, 8, 9, 10
+// 12, 15, 18, 20, 24, 30, 36
+// 40, 45, 60, 72, 90, 180, 360
+@include rotate(24);

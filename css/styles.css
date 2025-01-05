@@ -32,7 +32,7 @@ main {
   height: 297mm;
   margin: auto;
   padding: 20mm;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.0666666667), 0 0 15px rgba(0, 0, 0, 0.3333333333), 0 0 30px rgba(0, 0, 0, 0.6666666667);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.07), 0 0 15px rgba(0, 0, 0, 0.34), 0 0 30px rgba(0, 0, 0, 0.67);
   border-radius: 5px;
   border-color: #eee;
   border-left: 30px solid #eee;
@@ -118,4 +118,100 @@ h4::before {
 
 p {
   text-align: justify;
+}
+
+.rot-15 {
+  transform: rotateZ(15deg);
+}
+
+.rot-30 {
+  transform: rotateZ(30deg);
+}
+
+.rot-45 {
+  transform: rotateZ(45deg);
+}
+
+.rot-60 {
+  transform: rotateZ(60deg);
+}
+
+.rot-75 {
+  transform: rotateZ(75deg);
+}
+
+.rot-90 {
+  transform: rotateZ(90deg);
+}
+
+.rot-105 {
+  transform: rotateZ(105deg);
+}
+
+.rot-120 {
+  transform: rotateZ(120deg);
+}
+
+.rot-135 {
+  transform: rotateZ(135deg);
+}
+
+.rot-150 {
+  transform: rotateZ(150deg);
+}
+
+.rot-165 {
+  transform: rotateZ(165deg);
+}
+
+.rot-180 {
+  transform: rotateZ(180deg);
+}
+
+.rot-195 {
+  transform: rotateZ(-165deg);
+}
+
+.rot-210 {
+  transform: rotateZ(-150deg);
+}
+
+.rot-225 {
+  transform: rotateZ(-135deg);
+}
+
+.rot-240 {
+  transform: rotateZ(-120deg);
+}
+
+.rot-255 {
+  transform: rotateZ(-105deg);
+}
+
+.rot-270 {
+  transform: rotateZ(-90deg);
+}
+
+.rot-285 {
+  transform: rotateZ(-75deg);
+}
+
+.rot-300 {
+  transform: rotateZ(-60deg);
+}
+
+.rot-315 {
+  transform: rotateZ(-45deg);
+}
+
+.rot-330 {
+  transform: rotateZ(-30deg);
+}
+
+.rot-345 {
+  transform: rotateZ(-15deg);
+}
+
+.rot-360 {
+  transform: rotateZ(0deg);
 }/*# sourceMappingURL=styles.css.map */
