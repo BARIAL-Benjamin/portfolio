@@ -1,0 +1,33 @@
+input, textarea, select {
+    width: 100%;
+    min-height: 25px;
+    border: none;
+    border-radius: 10px;
+    margin: .5em 0;
+    padding: .5em;
+    font-family: "Veteran TypeWriter", 'Courier New', Courier, monospace;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 200px;
+}
+
+button {
+    cursor: pointer;
+    background: #fff;
+    min-height: 25px;
+    border: none;
+    border-radius: 10px;
+    margin: .5em 0;
+    padding: .5em;
+    font-family: "Veteran TypeWriter", 'Courier New', Courier, monospace;
+    &:hover {
+        background: #eee;
+    }
+}
+
+label::after {
+    content: ' :';
+}

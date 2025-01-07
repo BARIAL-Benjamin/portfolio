@@ -214,4 +214,65 @@ p {
 
 .rot-360 {
   transform: rotateZ(0deg);
+}
+
+input, textarea, select {
+  width: 100%;
+  min-height: 25px;
+  border: none;
+  border-radius: 10px;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  font-family: "Veteran TypeWriter", "Courier New", Courier, monospace;
+  outline: none;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 200px;
+}
+
+button {
+  cursor: pointer;
+  background: #fff;
+  min-height: 25px;
+  border: none;
+  border-radius: 10px;
+  margin: 0.5em 0;
+  padding: 0.5em;
+  font-family: "Veteran TypeWriter", "Courier New", Courier, monospace;
+}
+button:hover {
+  background: #eee;
+}
+
+label::after {
+  content: " :";
+}
+
+#skillsInfo {
+  padding: 0.5em 0;
+}
+
+#skillsList {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5em;
+  margin-top: 0.5em;
+}
+#skillsList > li {
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  padding: 1em;
+  border-radius: 20px;
+}
+#skillsList > li > p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin: 0.25em 0;
+}
+#skillsList > li > p.skillLevel::before {
+  content: "Niveau - ";
 }/*# sourceMappingURL=styles.css.map */
