@@ -1,9 +1,10 @@
-/** 
- * @module Skills 
- * @requires /lib/skills.mjs 
- */
 import Skills from '/lib/skills.mjs';
 
+const currentPage = location.pathname.replaceAll('/', '').replace(/.*\.html/, '');
+
+console.log(currentPage);
+
+/** Mon âge actuel */
 const age = (() => {
     const b = new Date("2002-04-15");
     const n = new Date();
@@ -11,7 +12,7 @@ const age = (() => {
     let y = n.getFullYear() - b.getFullYear();
     if (m < 0 || (m === 0 && n.getDate() < b.getDate())) y--;
     return y;
-})()
+})();
 
 const ages = document.querySelectorAll('.age');
 
@@ -19,7 +20,17 @@ ages.forEach(el => {
     el.textContent = `${age} ans`;
 });
 
-if (location.href.includes('competences')) {
+const header = document.querySelector('header');
+const navUL = header.querySelector('nav > ul');
+const links = navUL.querySelectorAll('a');
+
+links.forEach(link => {
+    if (link.dataset.page === currentPage) {
+        link.classList.add('line');
+    }
+});
+
+if (currentPage === 'competences') {
     /** Formulaire des compétences
      * @type {HTMLFormElement} 
      */

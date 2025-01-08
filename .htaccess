@@ -1,20 +1,10 @@
-# Désactiver l'énumération des répertoires et ajout des modules
-Options -Indexes
+# Activer le module de réécriture
 RewriteEngine On
 
-RewriteEngine On
-RewriteRule ^/competences.html /competences [R=301,L]
-RewriteRule ^/index.html / [R=301,L]
+# Rediriger les URLs sans extension vers les fichiers HTML correspondants
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([^/]+)/?$ /pages/$1.html [L]
 
-# Gestion des erreurs courantes
-ErrorDocument 403 /errors-page/403.html
-ErrorDocument 404 /errors-page/404.html
-ErrorDocument 500 /errors-page/500.html
-
-# Bloquer l'accès aux fichiers .scss
-RewriteRule ^.*\.scss$ - [F,L]
-
-# Protection contre le hotlinking
-RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^https?://(www\.)?benjamin-pro\.com/ [NC]
-RewriteRule \.(jpg|jpeg|png|gif|css|js|webp|mjs|html)$ - [F,NC,L]
+# Rediriger l'URL racine vers index.html
+RewriteRule ^$ index.html [L]
