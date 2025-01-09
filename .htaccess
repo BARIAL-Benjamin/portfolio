@@ -25,18 +25,15 @@ ErrorDocument 404 /errors-page/404.html
   Header set Content-Security-Policy "frame-ancestors 'self' benjamin-pro.com;"
 </IfModule>
 
-# MOD_DEFLATE COMPRESSION
-SetOutputFilter DEFLATE
-AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/x-javascript
-#Pour les navigateurs incompatibles
-BrowserMatch %5EMozilla/4 gzip-only-text/html
-BrowserMatch %5EMozilla/4\.0[678] no-gzip
-BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
-#ne pas mettre en cache si ces fichiers le sont déjà
-SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png|webp|svg)$ no-gzip
-#les proxies doivent donner le bon contenu
-Header append Vary User-Agent env=!dont-vary
+# Set One year for image files
+<filesMatch ".(jpg|jpeg|png|gif|ico)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+
+# Set One year for CSS and Javascript
+<filesMatch ".(css|js)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
 
 # BEGIN Expire headers
 <IfModule mod_expires.c>
