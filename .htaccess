@@ -9,5 +9,5 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)/?$ /pages/$1.html [L]
 
 ErrorDocument 500 /errors-page/500.html
-ErrorDocument 401 /errors-page/401.html
+ErrorDocument 403 /errors-page/403.html
 ErrorDocument 404 /errors-page/404.html
