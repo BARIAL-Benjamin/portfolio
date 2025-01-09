@@ -8,17 +8,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)/?$ /pages/$1.html [L]
 
-# Rediriger l'URL racine vers index.html
-RewriteRule ^$ index.html [L]
-
-# Redirection vers HTTPS
-RewriteCond %{HTTPS} !on
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
-<IfModule mod_headers.c>
-    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
-</IfModule>
-
-
 ErrorDocument 500 /errors-page/500.html
 ErrorDocument 401 /errors-page/401.html
 ErrorDocument 404 /errors-page/404.html
