@@ -21,4 +21,4 @@ ErrorDocument 404 /errors-page/404.html
 
 Header set X-XSS-Protection "1; mode=block"
 Header set X-Frame-Options "DENY"
-Header set Content-Security-Policy "frame-ancestors 'self' cloudflare.com;"
+Header set Content-Security-Policy "frame-ancestors 'self' benjamin-pro.com;"
