@@ -1,8 +1,9 @@
-import Skills from '/lib/skills.mjs';
-
-const currentPage = location.pathname.replaceAll('/', '').replace(/.*\.html/, '');
-
-console.log(currentPage);
+/** Page actuel */
+const currentPage = (() => {
+    const e = location.pathname.split('/');
+    const p = e.find(p => p.includes('.html')) ?? e[e.length - 1];
+    return p.replace('.html');
+})();
 
 /** Mon âge actuel */
 const age = (() => {
@@ -14,23 +15,25 @@ const age = (() => {
     return y;
 })();
 
-const ages = document.querySelectorAll('.age');
-
-ages.forEach(el => {
-    el.textContent = `${age} ans`;
-});
+document.querySelectorAll('.age').forEach(el => el.textContent = `${age} ans`);
+document.querySelectorAll('.rot').forEach(rot => rot.style.transform = `rotate(${rot.dataset.rot}deg)`);
 
 const header = document.querySelector('header');
 const navUL = header.querySelector('nav > ul');
 const links = navUL.querySelectorAll('a');
 
 links.forEach(link => {
-    if (link.dataset.page === currentPage) {
-        link.classList.add('line');
-    }
+    console.log(link.dataset.page);
+    
+    link.href = `/${link.dataset.page}`;
+    if (link.dataset.page === currentPage) link.classList.add('line');
 });
 
 if (currentPage === 'competences') {
+    const Skills = await(async () => {
+        return (await import('/lib/skills.mjs')).default;
+    })();
+
     /** Formulaire des compétences
      * @type {HTMLFormElement} 
      */
@@ -63,3 +66,12 @@ if (currentPage === 'competences') {
         form.reset();
     });
 };
+
+
+if (currentPage === 'contact') {
+    const captcha = document.getElementById('captcha');
+    const res = captcha.value;
+
+    const contact = document.querySelector('form');
+    contact.addEventListener('submit', e => { if (res !== 4_294_967_296) e.preventDefault(); })
+}
