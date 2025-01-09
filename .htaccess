@@ -26,14 +26,14 @@ ErrorDocument 404 /errors-page/404.html
 </IfModule>
 
 # Set One year for image files
-<filesMatch ".(jpg|jpeg|png|gif|ico)$">
-  Header set Cache-Control "max-age=31536000, public"
-</filesMatch>
+# <filesMatch ".(jpg|jpeg|png|gif|ico)$">
+#   Header set Cache-Control "max-age=31536000, public"
+# </filesMatch>
 
-# Set One year for CSS and Javascript
-<filesMatch ".(css|js)$">
-  Header set Cache-Control "max-age=31536000, public"
-</filesMatch>
+# # Set One year for CSS and Javascript
+# <filesMatch ".(css|js)$">
+#   Header set Cache-Control "max-age=31536000, public"
+# </filesMatch>
 
 # BEGIN Expire headers
 # <IfModule mod_expires.c>
