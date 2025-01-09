@@ -19,6 +19,10 @@ ErrorDocument 500 /errors-page/500.html
 ErrorDocument 403 /errors-page/403.html
 ErrorDocument 404 /errors-page/404.html
 
-Header set X-XSS-Protection "1; mode=block"
-Header set X-Frame-Options "DENY"
-Header set Content-Security-Policy "frame-ancestors 'self' benjamin-pro.com;"
+<IfModule mod_headers.c>
+  BrowserMatch MSIE is-msie
+  Header set X-UA-Compatible IE=edge env=is-msie
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Frame-Options "DENY"
+  Header set Content-Security-Policy "frame-ancestors 'self' benjamin-pro.com;"
+</IfModule>
