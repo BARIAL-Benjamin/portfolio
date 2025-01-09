@@ -72,5 +72,5 @@ ErrorDocument 404 /errors-page/404.html
 # # END Cache-Control Headers
 
 # KILL THEM ETAGS
-Header unset ETag
-FileETag none
+# Header unset ETag
+# FileETag none
