@@ -2,7 +2,8 @@
 const currentPage = (() => {
     const e = location.pathname.split('/');
     const p = e.find(p => p.includes('.html')) ?? e[e.length - 1];
-    return p.replace('.html');
+    if (e.includes('.html')) p = p.replace('.html', '')
+    return p;
 })();
 
 /** Mon âge actuel */
