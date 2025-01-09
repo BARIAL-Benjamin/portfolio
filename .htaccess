@@ -26,7 +26,7 @@ ErrorDocument 404 /errors-page/404.html
   Header set Content-Security-Policy "frame-ancestors 'self' benjamin-pro.com;"
 
   # En-têtes HTTP pour le cache
-  <FilesMatch "\.(html|css|js|png|jpe?g|svg|webp)$">
+  <FilesMatch "\.(html|css|js|mjs|png|jpe?g|svg|webp)$">
     Header set Cache-Control "max-age=31536000, public"
     Header set Expires "Thu, 31 Dec 2037 23:55:55 GMT"
   </FilesMatch>
