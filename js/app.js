@@ -32,7 +32,7 @@ links.forEach(link => {
 
 if (currentPage === 'competences') {
     const Skills = await(async () => {
-        return (await import('/lib/skills.mjs')).default;
+        return (await import('/lib/skills.min.mjs')).default;
     })();
 
     /** Formulaire des compétences
