@@ -213,4 +213,12 @@ label::after {
 }
 #skillsList > li > p.skillLevel::before {
   content: "Niveau - ";
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    width: 100svw;
+    height: 100svh;
+    padding: 0;
+  }
 }/*# sourceMappingURL=styles.css.map */
