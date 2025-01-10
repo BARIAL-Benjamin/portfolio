@@ -13,6 +13,7 @@ RewriteRule ^/(.+)\.mjs$ /lib/$1.min.mjs [L]
 RewriteRule ^([^/]+)/?$ /pages/$1.html [L]
 RewriteRule ^$ /index.html [L]
 
+
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?benjamin-pro.com [NC]
 RewriteRule \.(jpe?g|png|gif|bmp|webp|svg)$ - [NC,F,L]
@@ -29,7 +30,7 @@ ErrorDocument 404 /errors-page/404.html
   Header set Content-Security-Policy "frame-ancestors 'self' benjamin-pro.com;"
 
   # En-têtes HTTP pour le cache
-  <FilesMatch "\.(html|s?css|m?js|gif|png|jpe?g|svg|webp)$">
+  <FilesMatch "\.(html|s?css|m?js|mjs|gif|png|jpe?g|svg|webp)$">
     Header set Cache-Control "max-age=31536000, public"
     Header set Expires "Thu, 31 Dec 2037 23:55:55 GMT"
   </FilesMatch>
