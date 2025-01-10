@@ -3,6 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+*::-moz-selection {
+  background-color: #ffd220;
+}
+*::selection {
+  background-color: #ffd220;
+}
 
 @keyframes slide-out {
   to {
@@ -30,7 +36,7 @@ body {
   padding: 2em;
 }
 
-body > header {
+#postit {
   position: relative;
   top: 2.5%;
   left: 75%;
@@ -42,16 +48,16 @@ body > header {
   padding: 1em;
   transform: rotate(10deg);
 }
-body > header > nav > ul {
+#postit > nav > ul {
   display: flex;
   flex-direction: column;
-  list-style: "- ";
+  list-style-type: "- ";
 }
-body > header > nav > ul a {
+#postit > nav > ul a {
   text-decoration: none;
   color: #000;
 }
-body > header > nav > ul a.line {
+#postit > nav > ul a.line {
   text-decoration: line-through;
 }
 
@@ -94,20 +100,10 @@ section {
 }
 
 span.mark {
-  position: relative;
-}
-span.mark:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: 0 -0.4em;
-  padding: 0.1em 0.4em;
-  border-radius: 0.5em 0.3em;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.85), rgb(0, 0, 0) 10%, rgba(0, 0, 0, 0.95));
-  animation: slide-out 0.5s 2s forwards;
+  -webkit-mask-image: url("/assets/grunge.png");
+  -webkit-mask-size: 944px 604px;
+  mask-image: url("/assets/grunge.png");
+  mask-size: 944px 604px;
 }
 span.stamp {
   font-size: 24px;
@@ -116,12 +112,6 @@ span.stamp {
   border: 2px solid #ec1313;
   padding: 5px 10px;
   border-radius: 0.25rem;
-  -webkit-mask-image: url("/assets/grunge.png");
-  -webkit-mask-size: 944px 604px;
-  -webkit-mask-position: 2rem 3rem;
-  mask-image: url("/assets/grunge.png");
-  mask-size: 944px 604px;
-  mask-position: 2rem 3rem;
 }
 span.stamp.bigger {
   font-size: 48px;
@@ -139,20 +129,17 @@ span.bold {
   font-weight: bold;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6, p, span, input, textarea, button {
+  -webkit-mask-image: url("/assets/grunge.png");
+  -webkit-mask-size: 629.3333333333px 402.6666666667px;
+  mask-image: url("/assets/grunge.png");
+  mask-size: 629.3333333333px 402.6666666667px;
+}
+
+h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
-h1::after,
-h2::after,
-h3::after,
-h4::after,
-h5::after,
-h6::after {
+h1::after, h2::after, h3::after, h4::after, h5::after, h6::after {
   content: " :";
 }
 

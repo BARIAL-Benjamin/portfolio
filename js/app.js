@@ -2,8 +2,7 @@
 const currentPage = (() => {
     const e = location.pathname.split('/');
     const p = e.find(p => p.includes('.html')) ?? e[e.length - 1];
-    if (e.includes('.html')) p = p.replace('.html', '')
-    return p;
+    return p.includes('.html') ? p.replace('.html', '') : p;
 })();
 
 /** Mon âge actuel */
@@ -23,11 +22,9 @@ const header = document.querySelector('header');
 const navUL = header.querySelector('nav > ul');
 const links = navUL.querySelectorAll('a');
 
-links.forEach(link => {
-    console.log(link.dataset.page);
-    
+links.forEach(link => {    
     link.href = `/${link.dataset.page}`;
-    if (link.dataset.page === currentPage) link.classList.add('line');
+    if ((link.dataset.page || 'index') === currentPage) link.classList.add('line');
 });
 
 if (currentPage === 'competences') {

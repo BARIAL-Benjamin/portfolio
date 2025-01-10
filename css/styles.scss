@@ -3,6 +3,8 @@
 @import "_highline.scss";
 @import "_paper.scss";
 @import "_stamp.scss";
+@import "_highlight.scss";
+@import "_functions.scss";
 
 @font-face {
     font-family: "Veteran TypeWriter";
@@ -28,7 +30,7 @@ $stampColor: #ec1313;
     }
 }
 
-@mixin font-settings($font-family, $font-size: 16px, $line-height: 1) {
+@mixin font-settings($font-family: $mainFont, $font-size: 16px, $line-height: 1) {
     font-family: $font-family;
     font-size: $font-size;
     line-height: $line-height;
@@ -39,7 +41,7 @@ body {
     display: flex;
     width: 100vw;
     height: 100vh;
-    @include font-settings($mainFont);
+    @include font-settings();
     background: $bgColor;
     overflow-x: hidden;
 }
@@ -48,7 +50,7 @@ body {
     padding: 2em;
 }
 
-body > header {
+#postit {
     position: relative;
     top: 2.5%;
     left: 75%;
@@ -63,7 +65,7 @@ body > header {
         > ul {
             display: flex;
             flex-direction: column;
-            list-style: "- ";
+            list-style-type: "- ";
             & a {
                 text-decoration: none;
                 color: #000;
@@ -143,12 +145,11 @@ span {
     }
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+#{counter("h", 6, 'p,span,input,textarea,button')} {
+    @include highlight(calc(1888px / 3), calc(1208px / 3));
+}
+
+#{counter("h")} {
     text-transform: uppercase;
 
     &::after {

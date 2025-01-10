@@ -9,6 +9,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([^/]+)/?$ /pages/$1.html [L]
 RewriteRule ^$ /index.html [L]
 
+RewriteRule ^/(.+)\.(js|css)/?$ /$2/$1.min.$2 [L]
+RewriteRule ^/(.+)\.mjs/?$ /lib/$1.min.mjs [L]
+
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?benjamin-pro.com [NC]
 RewriteRule \.(jpe?g|png|gif|bmp|webp|svg)$ - [NC,F,L]
@@ -18,7 +21,6 @@ ErrorDocument 403 /errors-page/403.html
 ErrorDocument 404 /errors-page/404.html
 
 <IfModule mod_headers.c>
-  # En-têtes HTTP pour la compatibilité et la sécurité
   BrowserMatch MSIE is-msie
   Header set X-UA-Compatible IE=edge env=is-msie
   Header set X-XSS-Protection "1; mode=block"
@@ -26,16 +28,14 @@ ErrorDocument 404 /errors-page/404.html
   Header set Content-Security-Policy "frame-ancestors 'self' benjamin-pro.com;"
 
   # En-têtes HTTP pour le cache
-  <FilesMatch "\.(html|css|js|mjs|png|jpe?g|svg|webp)$">
+  <FilesMatch "\.(html|?scss|?mjs|gif|png|jpe?g|svg|webp)$">
     Header set Cache-Control "max-age=31536000, public"
     Header set Expires "Thu, 31 Dec 2037 23:55:55 GMT"
   </FilesMatch>
 </IfModule>
 
 <IfModule mod_deflate.c>
-  # Compression GZ
   AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
-  # Exclure certains navigateurs de la compression
   BrowserMatch ^Mozilla/4 gzip-only-text/html
   BrowserMatch ^Mozilla/4\.0[678] no-gzip
   BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
