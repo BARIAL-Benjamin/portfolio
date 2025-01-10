@@ -5,9 +5,10 @@ const currentPage = (() => {
     return p.includes('.html') ? p.replace('.html', '') : p;
 })();
 
-const thisYear = (new Date()).getFullYear();
-
 console.log(currentPage);
+
+
+const thisYear = (new Date()).getFullYear();
 
 /** Mon âge actuel */
 const age = (() => {
@@ -28,7 +29,7 @@ const links = navUL.querySelectorAll('a');
 
 links.forEach(link => {    
     link.href = `/${link.dataset.page}`;
-    if ((link.dataset.page || 'index') === currentPage) link.classList.add('line');
+    if (link.dataset.page === currentPage || currentPage === 'index') link.classList.add('line');
 });
 
 if (currentPage === 'competences') {
