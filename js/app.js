@@ -5,6 +5,8 @@ const currentPage = (() => {
     return p.includes('.html') ? p.replace('.html', '') : p;
 })();
 
+console.log(currentPage);
+
 /** Mon âge actuel */
 const age = (() => {
     const b = new Date("2002-04-15");
