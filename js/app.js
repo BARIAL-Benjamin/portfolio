@@ -5,23 +5,18 @@ const currentPage = (() => {
     return p.includes('.html') ? p.replace('.html', '') : p;
 })();
 
-console.log(currentPage);
-
-
 const thisYear = (new Date()).getFullYear();
 
 /** Mon âge actuel */
 const age = (() => {
-    const b = new Date("2002-04-15");
     const n = new Date();
-    const m = n.getMonth() - b.getMonth();
-    let y = thisYear - b.getFullYear();
-    if (m < 0 || (m === 0 && n.getDate() < b.getDate())) y--;
-    return y;
-})();
+    const m = n.getMonth() - 4;
+    if (m < 0 || (m === 0 && n.getDate() < 15)) return (thisYear - 2002 - 1);
+})() ?? 22; // calculé sinon en dur
 
 document.querySelectorAll('.age').forEach(el => el.textContent = `${age} ans`);
 document.querySelectorAll('.rot').forEach(rot => rot.style.transform = `rotate(${rot.dataset.rot}deg)`);
+document.getElementById('copyright').textContent = `© ${thisYear} - Tous droit réservé`;
 
 const header = document.querySelector('header');
 const navUL = header.querySelector('nav > ul');
