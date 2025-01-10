@@ -5,6 +5,8 @@ const currentPage = (() => {
     return p.includes('.html') ? p.replace('.html', '') : p;
 })();
 
+const thisYear = (new Date()).getFullYear();
+
 console.log(currentPage);
 
 /** Mon âge actuel */
@@ -12,7 +14,7 @@ const age = (() => {
     const b = new Date("2002-04-15");
     const n = new Date();
     const m = n.getMonth() - b.getMonth();
-    let y = n.getFullYear() - b.getFullYear();
+    let y = thisYear - b.getFullYear();
     if (m < 0 || (m === 0 && n.getDate() < b.getDate())) y--;
     return y;
 })();
