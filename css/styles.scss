@@ -16,7 +16,7 @@
 $mainFont: "Veteran TypeWriter", "Courier New", Courier, monospace;
 $bgColor: #eee;
 $paperColor: #fff;
-$borderSize: 30px;
+$borderSize: 0px;
 $borderDir: left;
 $stampColor: #ec1313;
 
@@ -47,7 +47,7 @@ body {
 }
 
 body {
-    padding: 2em;
+    padding: 2em 0;
 }
 
 #postit {
@@ -61,6 +61,7 @@ body {
     filter: drop-shadow(0 0 10px #000a);
     padding: 1em;
     transform: rotate(10deg);
+    z-index: 2000;
     > nav {
         > ul {
             display: flex;
@@ -84,7 +85,7 @@ main {
     @include a4-dimensions;
     overflow: hidden;
     margin: auto;
-    padding: 20mm;
+    padding: 20mm 20mm 10mm 20mm;
     box-shadow:
         0 0 5px rgba(0, 0, 0, 0.07),
         0 0 15px rgba(0, 0, 0, 0.34),
@@ -92,6 +93,28 @@ main {
     border-radius: 5px;
     @include paper($paperColor, $bgColor, $borderSize, $borderDir);
     background: $bgColor;
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSIyMDAiPjxwYXRoIHN0cm9rZT0iIzAwMCIgZD0iTTYwIDB2MjAwIi8+PC9zdmc+");
+    background-repeat: repeat-y;
+
+    section {
+        display: flex;
+        flex-direction: row;
+        > div  {
+            margin: auto;
+            padding: .5em;
+            > img {
+                margin: auto;
+                border-radius: 50%;
+                width: 10rem;
+                height: 10rem;
+                margin: 0 1.5em;
+                filter: grayscale(1);
+            }
+            > p {
+                text-align: justify;
+            }
+        }
+    }
 
     > header {
         display: flex;
@@ -121,18 +144,18 @@ span {
     }
 
     &.stamp {
-        @include stamp(24px, $stampColor);
+        @include stamp(1.5em, $stampColor);
 
         &.bigger {
-            font-size: 48px;
+            font-size: 2.5em;
         }
 
         &.big {
-            font-size: 32px;
+            font-size: 2em;
         }
 
         &.small {
-            font-size: 16px;
+            font-size: 1em;
         }
     }
 
@@ -167,6 +190,13 @@ h4 {
 
 p {
     text-align: justify;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: auto;
 }
 
 @import "_inputs.scss";
