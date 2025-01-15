@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Page de compétence. Vous pouvez y ajouter des compétences, les modifier, puis les supprimer.">
+    <meta name="description"
+        content="Page de compétence. Vous pouvez y ajouter des compétences, les modifier, puis les supprimer.">
     <meta name="keywords" content="accueil, portfolio, cv, projets, présentations, benjamin, cia">
     <link rel="canonical" href="https://benjamin-pro.com/competences">
     <meta property="og:description"
@@ -18,8 +19,10 @@
     <meta property="og:image:height" content="300" />
     <meta property="og:image:alt" content="Logo su site" />
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/webp">
-    <link rel="stylesheet" href="/css/styles.min.css">
-    <script type="module" src="/js/app.min.js" defer></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/jspdf.umd.min.js"></script>
+    <script src="/js/html2canvas.min.js"></script>
+    <script type="module" src="/js/app.js" defer></script>
     <title>Benjamin BARIAL | Compétences</title>
 </head>
 
@@ -35,10 +38,10 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="content">
         <h1>Compétences</h1>
-        <h2>Ajouter une compétence</h2>
         <form id="skillsForm">
+            <h2>Ajouter une compétence</h2>
             <label for="name">Nom de la compétence</label>
             <input type="text" id="name" name="name">
             <label for="description">Description:</label>
@@ -56,7 +59,9 @@
 
         <h2>Liste des compétences</h2>
         <ul id="skillsList"></ul>
+        <footer><span id="copyright"></span></footer>
     </main>
+    <div id="cur"></div>
 </body>
 
 </html>

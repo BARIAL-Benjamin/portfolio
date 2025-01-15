@@ -1,10 +1,10 @@
-@use "_reset.scss";
+@use "scss/_reset.scss";
 
-@import "_highline.scss";
-@import "_paper.scss";
-@import "_stamp.scss";
-@import "_highlight.scss";
-@import "_functions.scss";
+@import "scss/_highline.scss";
+@import "scss/_paper.scss";
+@import "scss/_stamp.scss";
+@import "scss/_highlight.scss";
+@import "scss/_functions.scss";
 
 @font-face {
     font-family: "Veteran TypeWriter";
@@ -48,6 +48,18 @@ body {
 
 body {
     padding: 2em 0;
+    cursor: none;
+}
+
+#cur {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: 32px;
+    height: 32px;
+    background-image: url("/assets/cursor.webp");
+    background-size: cover;
+    z-index: 20000;
 }
 
 #postit {
@@ -62,11 +74,13 @@ body {
     padding: 1em;
     transform: rotate(10deg);
     z-index: 2000;
+
     > nav {
         > ul {
             display: flex;
             flex-direction: column;
             list-style-type: "- ";
+
             & a {
                 text-decoration: none;
                 color: #000;
@@ -85,31 +99,29 @@ main {
     @include a4-dimensions;
     overflow: hidden;
     margin: auto;
-    padding: 20mm 20mm 10mm 20mm;
+    padding: 10mm 20mm;
     box-shadow:
         0 0 5px rgba(0, 0, 0, 0.07),
         0 0 15px rgba(0, 0, 0, 0.34),
         0 0 30px rgba(0, 0, 0, 0.67);
     border-radius: 5px;
-    @include paper($paperColor, $bgColor, $borderSize, $borderDir);
-    background: $bgColor;
-    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSIyMDAiPjxwYXRoIHN0cm9rZT0iIzAwMCIgZD0iTTYwIDB2MjAwIi8+PC9zdmc+");
+    background-color: $bgColor;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSIyMDAiPjxwYXRoIHN0cm9rZT0iIzAwMCIgZD0iTTYwIDB2MjAwIi8+PC9zdmc+");
     background-repeat: repeat-y;
 
     section {
-        display: flex;
-        flex-direction: row;
-        > div  {
-            margin: auto;
-            padding: .5em;
+        display: block;
+
+        > div {
             > img {
-                margin: auto;
+                float: right;
                 border-radius: 50%;
                 width: 10rem;
                 height: 10rem;
-                margin: 0 1.5em;
+                -webkit-filter: grayscale(1);
                 filter: grayscale(1);
             }
+
             > p {
                 text-align: justify;
             }
@@ -120,27 +132,35 @@ main {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        margin-bottom: 2em;
+
         > img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
         }
+
         > span {
             margin: auto 0;
         }
     }
 }
 
-section {
+a {
+    color: #000;
+}
+
+#cia {
     display: flex;
-    flex-direction: column;
-    margin-bottom: 1em;
+    margin-top: 1em;
+    align-items: center;
+    span {
+        margin: 0 .5em;
+    }
 }
 
 span {
     &.mark {
-        @include highlight;
+        @include highline();
     }
 
     &.stamp {
@@ -180,6 +200,10 @@ span {
     }
 }
 
+h1 {
+    padding: 0.5em 0;
+}
+
 h4 {
     margin: 0.5em 0;
 
@@ -199,7 +223,7 @@ footer {
     margin-top: auto;
 }
 
-@import "_inputs.scss";
+@import "scss/_inputs.scss";
 
 #skillsInfo {
     padding: 0.5em 0;
@@ -231,4 +255,6 @@ footer {
     }
 }
 
-@import "_mobile.scss";
+@import "scss/_keyframes.scss";
+
+@import "scss/_mobile.scss";

@@ -1,8 +1,0 @@
-@mixin stamp($fontSize: 24px, $colorMark: red) {
-    font-size: $fontSize;
-    color: $colorMark;
-    text-transform: uppercase;
-    border: 2px solid $colorMark;
-    padding: 5px 10px;
-    border-radius: .25rem;
-}

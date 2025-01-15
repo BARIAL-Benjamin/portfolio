@@ -20,6 +20,8 @@
     <link rel="canonical" href="https://benjamin-pro.com/">
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/webp">
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/jspdf.umd.min.js"></script>
+    <script src="/js/html2canvas.min.js"></script>
     <script type="module" src="/js/app.js" defer></script>
     <title>Benjamin BARIAL | Accueil</title>
 </head>
@@ -36,7 +38,7 @@
             </ul>
         </nav>
     </header>
-    <main>
+    <main id="content">
         <header>
             <img src="/assets/favicon-full.webp" alt="Logo">
             <span class="stamp bigger rot" data-rot="14">Confidentiel</span>
@@ -44,33 +46,45 @@
         <h1 id="portfolio">portfolio</h1>
         <section>
             <div>
+                <img src="/images/photo.webp" alt="photo moi" width="100px" height="100px">
+            </div>
+            <div>
                 <article>
                     <h4 id="name"><span class="underline">nom</span></h4>
                     <p><span class="mark">Benjamin <span class="underline">BARIAL</span> (ba-ri-al)</span>. Né le 15
-                        Avril
-                        2002 (<span class="age"></span>) à Rethel dans les Ardennes en France.</p>
+                        Avril 2002 <br>(<span class="age"></span>) à Rethel dans les Ardennes en France.</p>
                 </article>
                 <article>
                     <h4 id="position"><span class="underline">situation</span></h4>
-                    <p>Étudiant à <span class="mark underline">l'EiSINe</span>. Il est en alternance depuis le <span
-                            class="mark">26 Novembre 2023</span> au sein de l'association <span class="mark">"Vers
-                            L'Autonomie du Sujet" (V.A.S)</span></p>
+                    <p>Étudiant à <strong><span class="mark underline">l'EiSINe</span></strong>. Il est en alternance
+                        depuis le <br><span class="mark">26 Novembre 2023</span> au sein de l'association
+                        <br><strong><span class="mark">"Vers L'Autonomie du Sujet" (V.A.S)</span></strong>
+                    </p>
                 </article>
-                <article id="experience">
-                    <h4><span class="underline">expérience</span></h4>
-                    <p><span class="mark">BARIAL Benjamin</span> est un jeune ambitieux qui a de l'expérience.</p>
+                <article>
+                    <h4 id="experience"><span class="underline">expérience</span></h4>
+                    <p><span class="mark">BARIAL Benjamin</span> est un jeune ambitieux qui a de l'expérience.
+                        Il a développé des compétences en <strong>cybersécurité</strong>, en
+                        <strong>méthodologie</strong>, en <strong>gestion</strong> et en <strong>équipe</strong>.
+                        Il a un penchant pour le développement <strong><span class="mark">frontend</span></strong>, mais
+                        est aussi doué pour <span class="mark">le <strong>backend</strong></span>.
+                    </p>
                 </article>
-            </div>
-            <div>
-                <img src="/images/1001.webp" alt="photo moi" width="100px" height="100px">
+                <article>
+                    <h4 id="contact"><span class="underline">contact</span></h4>
+                    <p>Vous pouvez le contacter à cette adresse mail: <strong><span class="mail mark"></span></strong>
+                        où par téléphone au <strong><span class="tel mark"></span></strong>
+                    </p>
+                </article>
             </div>
         </section>
-        <section>
-            <p><span class="stamp rot" data-rot="150">CIA</span> (<span class="mark">Conception Intégration
-                    Application</span>)</p>
+        <section id="cia">
+            <span class="stamp rot" data-rot="-15">CIA</span>
+            <span class="mark">(Conception Intégration Application)</span>
         </section>
         <footer><span id="copyright"></span></footer>
     </main>
+    <div id="cur"></div>
 </body>
 
 </html>
