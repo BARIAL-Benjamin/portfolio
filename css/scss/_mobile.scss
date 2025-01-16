@@ -1,0 +1,71 @@
+@media screen and (max-width: 768px) {
+
+    html,
+    body {
+        display: grid;
+        padding: 0;
+        margin: 0;
+    }
+
+    #cur {
+        display: none;
+    }
+
+    #postit {
+        position: absolute;
+        width: 10em;
+        height: 10em;
+        transform: rotate(5deg);
+    }
+
+    main {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        padding: 2em;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        background: none;
+        > header {
+            justify-content: space-evenly;
+            > img {
+                align-self: flex-start;
+                width: 100px;
+                height: 100px;
+            }
+            > span {
+                align-self: flex-end;
+            }
+        }
+    }
+    span {
+        &.mark {
+            @include highlight;
+        }
+    
+        &.stamp {
+            @include stamp(1em, $stampColor);
+    
+            &.bigger {
+                font-size: 2em;
+            }
+    
+            &.big {
+                font-size: 1.5em;
+            }
+    
+            &.small {
+                font-size: .5em;
+            }
+        }
+    }
+
+    section {
+        margin-bottom: 0.5em;
+    }
+
+    #skillsList {
+        grid-template-columns: 1fr;
+    }
+}
