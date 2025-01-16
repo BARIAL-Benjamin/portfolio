@@ -10,7 +10,6 @@
   background-color: #ffd220;
 }
 
-/**/
 @font-face {
   font-family: "Veteran TypeWriter";
   src: url("/fonts/veteran_typewriter.ttf"), local("veteran_typewriter.ttf") format("ttf");
@@ -189,6 +188,18 @@ h4::before {
   content: "(U). ";
 }
 
+h5, h6 {
+  font-size: 0.75em;
+}
+
+h6 {
+  margin: 0 0 0 2em;
+}
+
+ul {
+  list-style: "- ";
+}
+
 p {
   text-align: justify;
 }
@@ -270,6 +281,78 @@ label::after {
   content: "Niveau - ";
 }
 
+#hardskills > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+}
+#hardskills > ul > li > ul > li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+#hardskills > ul > li > ul > li > progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+       appearance: none;
+  width: 100px;
+  margin: 0.25em 0;
+}
+#hardskills > ul > li > ul > li > progress::-webkit-progress-bar {
+  background-color: #eee;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2666666667) inset;
+  border-radius: 20px;
+  border: rgba(0, 0, 0, 0.2666666667) 1px solid;
+}
+#hardskills > ul > li > ul > li > progress::-webkit-progress-value {
+  background-color: #000;
+  border-radius: 20px;
+}
+#hardskills > ul > li > ul > li > progress::-webkit-progress-value {
+  -webkit-mask-image: url("/assets/grunge.webp");
+  -webkit-mask-size: 118px 466px;
+  mask-image: url("/assets/grunge.webp");
+  mask-size: 118px 466px;
+}
+#hardskills > ul > li > ul > li > progress::-moz-progress-bar {
+  background-color: #000;
+  border-radius: 20px;
+}
+#hardskills > ul > li > ul > li > progress::-moz-progress-bar {
+  -webkit-mask-image: url("/assets/grunge.webp");
+  -webkit-mask-size: 556px 313px;
+  mask-image: url("/assets/grunge.webp");
+  mask-size: 556px 313px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5em;
+}
+.cards > article {
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  padding: 1em;
+  border-radius: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+  text-align: center;
+}
+.cards > article p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin: 0.25em 0;
+}
+.cards > article img {
+  filter: grayscale(1);
+  image-rendering: optimizeSpeed;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 100px;
+}
+
 @keyframes slideout {
   from {
     transform: scale(1);
@@ -284,6 +367,9 @@ label::after {
     display: grid;
     padding: 0;
     margin: 0;
+  }
+  #cur {
+    display: none;
   }
   #postit {
     position: absolute;

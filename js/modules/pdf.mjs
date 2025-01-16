@@ -1,23 +1,31 @@
-export default class PDFGenerator {
-  /**
-   * @param {HTMLElement} content
-   * @param {NodeListOf<Element> | Element[]} elementsToNotDisplay
-   * @param {string} [format="WEBP"]
-   * @param {string} [title=document.title]
+export default class PDF {
+  /** Traite, génère et sauvegarde un PDF
+   * @param {Event} self Bouton
+   * @param {HTMLElement} content Elément à capturer
+   * @param {NodeListOf<Element> | Element[]} [elementsToNotDisplay = null] Eléments à ne pas afficher
+   * @param {string} [format="PNG"] Format de compression (default: PNG)
+   * @param {string} [title=document.title] Titre de sortie du PDF (default: titre de la page)
    */
-  static async generatePDF(content, elementsToNotDisplay, format = "WEBP", title = document.title) {
+  static async generatePDF(
+    self,
+    content,
+    elementsToNotDisplay = null,
+    format = "PNG",
+    title = document.title
+  ) {
     // Init
     const { jsPDF } = window.jspdf;
     const pdf = new jsPDF();
 
     // Hide elements
-    elementsToNotDisplay.forEach(el => el.style.display = "none");
+    if (elementsToNotDisplay) elementsToNotDisplay.forEach((el) => (el.style.display = "none"));
+    self.target.style.display = "none";
 
     // Save original styles
     const originalStyles = {
       backgroundColor: content.style.backgroundColor,
       backgroundImage: content.style.backgroundImage,
-      boxShadow: content.style.boxShadow
+      boxShadow: content.style.boxShadow,
     };
 
     // Remove styles for PDF generation
@@ -35,6 +43,38 @@ export default class PDFGenerator {
 
     // Restore original styles
     Object.assign(content.style, originalStyles);
-    elementsToNotDisplay.forEach(el => el.style.display = "");
+    if (elementsToNotDisplay) elementsToNotDisplay.forEach((el) => (el.style.display = ""));
+    self.target.style.display = "";
+  }
+
+  /** Créer le bouton pour créer le PDF associé au contenu
+   * @param {HTMLElement | Element} beforeWhere Elément auquel le bouton ce placera avant 
+   * @param {HTMLElement | Element} content Elément à capturer
+   * @param {NodeListOf<Element> | Element[]} [elementsToNotDisplay=null] Eléments à ne pas afficher
+   * @param {string} [format="PNG"] Format de compression (default: PNG)
+   * @param {string} [title=document.title] Titre de sortie du PDF (default: titre de la page)
+   */
+  static async createButtonPDF(
+    beforeWhere,
+    content,
+    elementsToNotDisplay = null,
+    format = "PNG",
+    title = document.title
+  ) {
+    await import("../html2canvas.min.js");
+    await import("../jspdf.umd.min.js");
+
+    /** Titre sans les caractères spéciaux */
+    const titre = title.replaceAll(/[^a-zA-Z0-9À-ÿ\ ]+/g, '-');    
+
+    const button = document.createElement("button");
+    button.textContent = "Télécharger en PDF";
+    button.title = titre;
+    button.type = "button";
+    button.addEventListener(
+      "click",
+      async (e) => await PDF.generatePDF(e, content, elementsToNotDisplay, format, titre)
+    );
+    beforeWhere.insertAdjacentElement("beforebegin", button);
   }
 }

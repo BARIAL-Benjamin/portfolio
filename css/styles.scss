@@ -1,9 +1,6 @@
 @use "scss/_reset.scss";
 
-@import "scss/_highline.scss";
-@import "scss/_paper.scss";
-@import "scss/_stamp.scss";
-@import "scss/_highlight.scss";
+@import "scss/_mixins.scss";
 @import "scss/_functions.scss";
 
 @font-face {
@@ -21,10 +18,10 @@ $borderDir: left;
 $stampColor: #ec1313;
 
 @mixin a4-dimensions {
-    @if ($borderDir ==top) {
+    @if ($borderDir == top) {
         width: calc(297mm - $borderSize);
         height: 210mm;
-    } @else if ($borderDir ==left) {
+    } @else if ($borderDir == left) {
         width: calc(210mm - $borderSize);
         height: 297mm;
     }
@@ -154,7 +151,7 @@ a {
     margin-top: 1em;
     align-items: center;
     span {
-        margin: 0 .5em;
+        margin: 0 0.5em;
     }
 }
 
@@ -212,6 +209,18 @@ h4 {
     }
 }
 
+h5, h6 {
+    font-size: .75em;
+}
+
+h6 {
+    margin: 0 0 0 2em;
+}
+
+ul {
+    list-style: "- ";
+}
+
 p {
     text-align: justify;
 }
@@ -254,6 +263,44 @@ footer {
         }
     }
 }
+
+#hardskills > ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em;
+    > li > ul > li {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        > progress {
+            -webkit-appearance: none;
+            appearance: none;
+
+            width: 100px;
+            margin: 0.25em 0;
+
+            &::-webkit-progress-bar {
+                background-color: #eee; // Couleur de fond de la barre de progression
+                box-shadow: 0 2px 5px #0004 inset;
+                border-radius: 20px;
+                border: #0004 1px solid;
+            }
+
+            &::-webkit-progress-value {
+                @include highlight(#{random-between(0, 944)}px, #{random-between(0, 604)}px);
+                background-color: #000; // Couleur de la valeur de progression
+                border-radius: 20px;
+            }
+
+            &::-moz-progress-bar {
+                @include highlight(#{random-between(0, 944)}px, #{random-between(0, 604)}px);
+                background-color: #000; // Couleur de la valeur de progression pour Firefox
+                border-radius: 20px;
+            }
+        }
+    }
+}
+
+@import "scss/_cards.scss";
 
 @import "scss/_keyframes.scss";
 

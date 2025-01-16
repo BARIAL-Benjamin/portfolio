@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Page de projets. Petit aperçu de mes projets.">
     <meta name="keywords" content="accueil, portfolio, cv, projets, présentations, benjamin, cia">
-    <meta property="og:description"
-        content="Page de projets. Petit aperçu de mes projets." />
+    <meta property="og:description" content="Page de projets. Petit aperçu de mes projets." />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Benjamin BARIAL" />
     <meta property="og:image" content="https://benjamin-pro.com/assets/favicon-full.webp" />
@@ -18,10 +17,9 @@
     <meta property="og:image:alt" content="Logo su site" />
     <link rel="canonical" href="https://benjamin-pro.com/portfolio">
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/webp">
-    <link rel="stylesheet" href="/css/styles.min.css">
-    <script src="/js/jspdf.umd.min.js"></script>
-    <script src="/js/html2canvas.min.js"></script>
-    <script type="module" src="/js/app.min.js" defer></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="module" src="/js/download.js" defer></script>
+    <script type="module" src="/js/app.js" defer></script>
     <title>Benjamin BARIAL | Portfolio</title>
 </head>
 
@@ -42,12 +40,43 @@
             <img src="/assets/favicon-full.webp" alt="Logo">
             <span class="stamp bigger rot" data-rot="14">Confidentiel</span>
         </header>
-        <h1 id="contact">contact</h1>
-        <section>
-            
+        <h1 id="projects">projets</h1>
+        <section class="cards">
+            <article>
+                <h4><span class="underline mark">Roulette</span></h4>
+                <p>Le projet <span class="mark">roulette</span> consiste à tirer au sort un élève puis la noter sur une
+                    prestation oral par exemple.</p>
+                <a target="_blank" rel="noopener" href="https://benjamin-brl.github.io/projets/roulette/">
+                    <img src="/images/roulette.webp" alt="Roulette">
+                </a>
+            </article>
+            <article>
+                <h4><span class="underline mark">SubModule</span></h4>
+                <p><span class="underline mark">Submodule</span> est un module (toujours en cours de développement) pour
+                    créer, convertir des formats de <span class="mark">sous-titre</span> en autres.</p>
+                <a target="_blank" rel="noopener" href="https://github.com/benjamin-brl/sub">
+                    <img src="/images/submodule.webp" alt="Roulette">
+                </a>
+            </article>
+            <article>
+                <h4><span class="underline mark">Chess</span></h4>
+                <p><span class="underline mark">Chess</span> est un <span class="mark">jeu d'échec</span> entièrement
+                    jouable en solo ou en ligne avec un classement monde et entre amis. Il est encore en développement.
+                    Malheuresement je ne peux montré aucun visuel</p>
+                <img src="/images/chess.webp" alt="Roulette">
+            </article>
+            <article>
+                <h4><span class="underline mark">Nosco</span></h4>
+                <p>C'est une <span class="mark">extension</span> chrome/firefox pour <span class="mark">prendre des
+                        notes</span> sur un site web
+                    en particulier ou globalement.<br><span class="mark">Une note</span> peut-être sauvegarder ou être
+                    temporaire et peut-être chiffré par mot de passe.</p>
+                <img src="/assets/postit.webp" alt="Roulette">
+            </article>
         </section>
-        <section>
-            <p><span class="stamp rot" d>CIA</span> (<span class="mark">Conception Intégration Application</span>)</p>
+        <section id="cia">
+            <span class="stamp rot" data-rot="-15">CIA</span>
+            <span class="mark">(Conception Intégration Application)</span>
         </section>
         <footer><span id="copyright"></span></footer>
     </main>

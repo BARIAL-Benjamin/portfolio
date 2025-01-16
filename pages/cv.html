@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Page de CV. Il n'y a rien.">
     <meta name="keywords" content="accueil, portfolio, cv, projets, présentations, benjamin, cia">
-    <meta property="og:description"
-        content="Page de CV. Il n'y a rien." />
+    <meta property="og:description" content="Page de CV. Il n'y a rien." />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Benjamin BARIAL" />
     <meta property="og:image" content="https://benjamin-pro.com/assets/favicon-full.webp" />
@@ -18,10 +17,9 @@
     <meta property="og:image:alt" content="Logo su site" />
     <link rel="canonical" href="https://benjamin-pro.com/cv">
     <link rel="shortcut icon" href="/assets/favicon.webp" type="image/webp">
-    <link rel="stylesheet" href="/css/styles.min.css">
-    <script src="/js/jspdf.umd.min.js"></script>
-    <script src="/js/html2canvas.min.js"></script>
-    <script type="module" src="/js/app.min.js" defer></script>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="module" src="/js/download.js" defer></script>
+    <script type="module" src="/js/app.js" defer></script>
     <title>Benjamin BARIAL | CV</title>
 </head>
 
@@ -42,12 +40,110 @@
             <img src="/assets/favicon-full.webp" alt="Logo">
             <span class="stamp bigger rot" data-rot="14">Confidentiel</span>
         </header>
-        <h1 id="contact">contact</h1>
+        <h1 id="cv">cv</h1>
         <section>
-
+            <article id="experience">
+                <h4>expérience</h4>
+                <h5>2020 – 2021</h5>
+                <h6>1er et 2nd Stage</h6>
+                <p>
+                    Stage de 2 et 6 semaines réalisés chez 3D Métal
+                    Industries lors de ma 1er et 2nd année en BTS CPI.
+                </p>
+                <h6>3nd Stage</h6>
+                <p>
+                    Stage de 5 semaines réalisé en 1er année de BTS
+                    SIO, au cours duquel j'ai conçu un site web pour
+                    une coiffeuse à domicile.
+                </p>
+                <h5>2023 – 2025</h5>
+                <h6>alternance</h6>
+                <p>
+                    En alternance depuis fin Novembre 2023 dans l'association Vers l'Autonomie du Sujet (V.A.S)
+                </p>
+            </article>
+            <article id="scolarite">
+                <h4>scolarité</h4>
+                <h5>2019 – 2020</h5>
+                <h6>BAC STI2D</h6>
+                <p>Obtention du diplôme STI2D avec mention « Bien » au lycée François Bazin.</p>
+                <h5>2020 – 2022</h5>
+                <h6>BTS CPI</h6>
+                <p>Obtention du diplôme BTS CPI (Conception de Produits Industriels) au lycée François Bazin.</p>
+                <h5>2022 – 2024</h5>
+                <h6>BTS SIO</h6>
+                <p>Obtention du diplôme BTS SIO (Services Informatiques aux Organisations) que j'ai fais en
+                    alternance pour la 2nd année chez l’association V.A.S.</p>
+                <h5>2024 – 2025</h5>
+                <p>Actuellement en Licence pro à l'EiSINe dans la section CRRW (Conception Réalisation Rédaction Web)
+                    toujours en alternance au sein de l'association V.A.S
+                </p>
+            </article>
+            <article id="softskills">
+                <h4>savoir-être</h4>
+                <ul>
+                    <li>Autonome Fiable / Rigoureux</li>
+                    <li>Autodidacte Sociable</li>
+                    <li>Esprit d’analyse Esprit d’équipe</li>
+                </ul>
+            </article>
+            <article id="hardskills">
+                <h4>competences</h4>
+                <ul>
+                    <li>
+                        Langue parlé
+                        <ul>
+                            <li>Anglais
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Langage
+                        <ul>
+                            <li>PHP/SQL
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                            <li>HTML/CSS
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                            <li>JavaScript
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                            <li>Python
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                            <li>Shell/Batch
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Réseaux
+                        <ul>
+                            <li>Infras Réseaux
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                            <li>Proxmox VE
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                            <li>Linux
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                            <li>Dépannage
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                            <li>Services
+                                <progress value="78" max="100"> 32% </progress>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </article>
         </section>
-        <section>
-            <p><span class="stamp rot" d>CIA</span> (<span class="mark">Conception Intégration Application</span>)</p>
+        <section id="cia">
+            <span class="stamp rot" data-rot="-15">CIA</span>
+            <span class="mark">(Conception Intégration Application)</span>
         </section>
         <footer><span id="copyright"></span></footer>
     </main>
