@@ -9,28 +9,28 @@
     </url>
     <!-- Page Portfolio -->
     <url>
-        <loc>https://benjamin-pro.com/portfolio.html</loc>
+        <loc>https://benjamin-pro.com/portfolio</loc>
         <lastmod>2024-12-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <!-- Page CV -->
     <url>
-        <loc>https://benjamin-pro.com/cv.html</loc>
+        <loc>https://benjamin-pro.com/cv</loc>
         <lastmod>2024-12-31</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <!-- Page Contact -->
     <url>
-        <loc>https://benjamin-pro.com/contact.html</loc>
+        <loc>https://benjamin-pro.com/contact</loc>
         <lastmod>2024-12-31</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.4</priority>
     </url>
     <!-- Page Compétences -->
     <url>
-        <loc>https://benjamin-pro.com/competences.html</loc>
+        <loc>https://benjamin-pro.com/competences</loc>
         <lastmod>2024-12-31</lastmod>
         <changefreq>yearly</changefreq>
         <priority>0.1</priority>
