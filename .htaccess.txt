@@ -1,0 +1,45 @@
+Options -Indexes
+
+# Activer le module de réécriture
+RewriteEngine On
+
+# Rediriger les URLs sans extension vers les fichiers HTML correspondants
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule ^/(.+)\.(js|css)$ /$2/$1.min.$2 [L]
+# RewriteRule ^/(.+)\.mjs$ /lib/$1.min.mjs [L]
+
+# à mettre à la fin des réécritures
+RewriteRule ^([^/]+)/?$ /pages/$1.html [L]
+RewriteRule ^$ /index.html [L]
+
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?benjamin-pro.com [NC]
+RewriteRule \.(jpe?g|png|gif|bmp|webp|svg)$ - [NC,F,L]
+
+ErrorDocument 500 /errors/500.html
+ErrorDocument 403 /errors/403.html
+ErrorDocument 404 /errors/404.html
+
+<IfModule mod_headers.c>
+  BrowserMatch MSIE is-msie
+  Header set X-UA-Compatible IE=edge env=is-msie
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Frame-Options "DENY"
+  Header set Content-Security-Policy "frame-ancestors 'self' benjamin-pro.com;"
+
+  # En-têtes HTTP pour le cache
+  <FilesMatch "\.(html|s?css|m?js|mjs|gif|png|jpe?g|svg|webp)$">
+    Header set Cache-Control "max-age=31536000, public"
+    Header set Expires "Thu, 31 Dec 2037 23:55:55 GMT"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+  BrowserMatch ^Mozilla/4 gzip-only-text/html
+  BrowserMatch ^Mozilla/4\.0[678] no-gzip
+  BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+  Header append Vary User-Agent
+</IfModule>

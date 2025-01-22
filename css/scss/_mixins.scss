@@ -1,0 +1,66 @@
+@mixin paper($paperColor, $bgColor, $borderSize, $direction: left) {
+    $borderImage: none;
+    $borderImageWidth: 0;
+
+    @if ($direction == "top") {
+        $borderImage: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52" transform="rotate(90)"><path fill="#{$paperColor}" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>');
+        $borderImageWidth: $borderSize 0 0 0;
+    } @else if ($direction == "right") {
+        $borderImage: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52" transform="rotate(180)"><path fill="#{$paperColor}" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>');
+        $borderImageWidth: 0 $borderSize 0 0;
+    } @else if ($direction == "bottom") {
+        $borderImage: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52" transform="rotate(-90)"><path fill="#{$paperColor}" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>');
+        $borderImageWidth: 0 0 $borderSize 0;
+    } @else if ($direction == "left") {
+        $borderImage: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="42" height="52" viewBox="0 0 42 52"><path fill="#{$paperColor}" d="M0 0v25.247h7.121c.503-5.006 4.728-8.914 9.866-8.914 5.476 0 9.917 4.44 9.917 9.917s-4.44 9.917-9.917 9.917c-5.138 0-9.363-3.908-9.866-8.914H0V52.5h42V0z"/></svg>');
+        $borderImageWidth: 0 0 0 $borderSize;
+    } @else {
+        @error "Invalid direction #{$direction} for paper mixin";
+    }
+
+    border-color: $bgColor;
+    border-#{$direction}: $borderSize solid $bgColor;
+    border-image: $borderImage 5% 100% repeat;
+    border-image-width: $borderImageWidth;
+}
+
+@mixin stamp($fontSize: 24px, $colorMark: red) {
+    font-size: $fontSize;
+    color: $colorMark;
+    text-transform: uppercase;
+    border: 2px solid $colorMark;
+    padding: 5px 10px;
+    border-radius: .25rem;
+}
+
+@mixin highline() {
+    position: relative;
+    word-break: break-word;
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0 -0.4em;
+        padding: 0.1em 0.4em;
+        border-radius: 0.5em 0.3em;
+        background: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.85),
+            rgba(0, 0, 0, 1) 10%,
+            rgba(0, 0, 0, 0.95)
+        );
+        animation: slideout 0.5s 2s forwards;
+    }
+}
+
+@mixin highlight($y: 944px, $x: 604px) {
+    &{
+        -webkit-mask-image: url('/assets/grunge.webp');
+        -webkit-mask-size: $y $x;
+        mask-image: url('/assets/grunge.webp');
+        mask-size: $y $x;
+    }
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Page d'accueil de mon site portfolio. Vous pouvez y retrouver une petite présentation, mon CV, mes projets.">
+    <meta name="keywords" content="accueil, portfolio, cv, projets, présentations, benjamin, cia">
+    <meta property="og:description"
+        content="Page d'accueil de mon site portfolio. Vous pouvez y retrouver une petite présentation, mon CV, mes projets." />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Benjamin BARIAL" />
+    <meta property="og:image" content="https://benjamin-pro.com/assets/favicon-full.webp" />
+    <meta property="og:image:secure_url" content="https://benjamin-pro.com/assets/favicon-full.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content="Logo su site" />
+    <link rel="canonical" href="https://benjamin-pro.com/">
+    <link rel="shortcut icon" href="/assets/favicon.webp" type="image/webp">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="module" src="/js/download.js" defer></script>
+    <script type="module" src="/js/app.js" defer></script>
+    <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').then(() => { console.log('SW enregistré !') }).catch(e => { console.error(e) })</script>
+    <title>Benjamin BARIAL | Accueil</title>
+</head>
+
+<body>
+    <header id="postit">
+        <nav>
+            <ul>
+                <li><a data-page="">Accueil</a></li>
+                <li><a data-page="cv">CV</a></li>
+                <li><a data-page="portfolio">Portfolio</a></li>
+                <li><a data-page="contact">Contact</a></li>
+                <li><a data-page="competences">Compétences</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="content">
+        <header>
+            <img src="/assets/favicon-full.webp" alt="Logo">
+            <span class="stamp bigger rot" data-rot="14">Confidentiel</span>
+        </header>
+        <h1 id="portfolio">portfolio</h1>
+        <section>
+            <div>
+                <img src="/images/photo.webp" alt="photo moi" width="100px" height="100px">
+            </div>
+            <div>
+                <article>
+                    <h4 id="name"><span class="underline">nom</span></h4>
+                    <p><span class="mark">Benjamin <span class="underline">BARIAL</span> (ba-ri-al)</span>. Né le 15
+                        Avril 2002 <br>(<span class="age"></span>) à Rethel dans les Ardennes en France.</p>
+                </article>
+                <article>
+                    <h4 id="position"><span class="underline">situation</span></h4>
+                    <p>Étudiant à <strong><span class="mark underline">l'EiSINe</span></strong>. Il est en alternance
+                        depuis le <br><span class="mark">26 Novembre 2023</span> au sein de l'association
+                        <br><strong><span class="mark">"Vers L'Autonomie du Sujet" (V.A.S)</span></strong>
+                    </p>
+                </article>
+                <article>
+                    <h4 id="experience"><span class="underline">expérience</span></h4>
+                    <p><span class="mark">BARIAL Benjamin</span> est un jeune ambitieux qui a de l'expérience.
+                        Il a développé des compétences en <strong>cybersécurité</strong>, en
+                        <strong>méthodologie</strong>, en <strong>gestion</strong> et en <strong>équipe</strong>.
+                        Il a un penchant pour le développement <strong><span class="mark">frontend</span></strong>, mais
+                        est aussi doué pour <span class="mark">le <strong>backend</strong></span>.
+                    </p>
+                </article>
+                <article id="interests">
+                    <h4><span class="underline">Intérêts</span></h4>
+                    <p>Benjamin est intérrêsé par le <span class="mark">cinéma</span>, il aime savoir comment son
+                        réaliser <br><span class="mark">les films et connaître les anecdotes de tournage</span>. Il
+                        connaît
+                        aussi très bien le monde du <span class="mark">"soft et hardware"</span>, il suit de très près
+                        l'actualité informatique et les nouvelles sorties logiciels et composants. Et pour finir, il est
+                        très intéressé par les <br><span class="mark">formats médiatiques</span>, car celui-ci regoupe à
+                        la
+                        fois l'univers du <br><span class="mark">cinéma et informatique</span>.
+                    </p>
+                </article>
+                <article>
+                    <h4 id="contact"><span class="underline">contact</span></h4>
+                    <p>Vous pouvez le contacter à cette adresse mail: <strong><span class="mail mark"></span></strong>
+                        où par téléphone au <strong><span class="tel mark"></span></strong>
+                    </p>
+                </article>
+            </div>
+        </section>
+        <section id="cia">
+            <span class="stamp rot" data-rot="-15">CIA</span>
+            <span class="mark">(Conception Intégration Application)</span>
+        </section>
+        <footer><span id="copyright"></span></footer>
+    </main>
+    <div id="cur"></div>
+</body>
+
+</html>
