@@ -1,0 +1,8 @@
+.htaccess.txt
+*.gradle
+*.properties
+gradlew
+gradlew.bat
+twa-*.*
+/gradle/*
+/app/*
