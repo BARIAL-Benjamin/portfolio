@@ -1,4 +1,5 @@
-.htaccess.txt
+manifest-*.txt
+store*.png
 *.gradle
 *.properties
 gradlew
@@ -6,3 +7,8 @@ gradlew.bat
 twa-*.*
 /gradle/*
 /app/*
+*.keystore
+*.aab
+*.apk
+!portfolio.apk
+*.idsig
