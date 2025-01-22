@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Page de compétence. Vous pouvez y ajouter des compétences, les modifier, puis les supprimer.">
+    <meta name="keywords" content="accueil, portfolio, cv, projets, présentations, benjamin, cia">
+    <link rel="canonical" href="https://benjamin-pro.com/competences">
+    <meta property="og:description"
+        content="Page de compétence. Vous pouvez y ajouter des compétences, les modifier, puis les supprimer." />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="Benjamin BARIAL" />
+    <meta property="og:image" content="https://benjamin-pro.com/assets/favicon-full.webp" />
+    <meta property="og:image:secure_url" content="https://benjamin-pro.com/assets/favicon-full.webp" />
+    <meta property="og:image:type" content="image/webp" />
+    <meta property="og:image:width" content="300" />
+    <meta property="og:image:height" content="300" />
+    <meta property="og:image:alt" content="Logo su site" />
+    <link rel="shortcut icon" href="/assets/favicon.webp" type="image/webp">
+    <link rel="stylesheet" href="/css/styles.min.css">
+    <script type="module" src="/js/download.min.js" defer></script>
+    <script type="module" src="/js/app.min.js" defer></script>
+    <title>Benjamin BARIAL | Compétences</title>
+</head>
+
+<body>
+    <header id="postit">
+        <nav>
+            <ul>
+                <li><a data-page="">Accueil</a></li>
+                <li><a data-page="cv">CV</a></li>
+                <li><a data-page="portfolio">Portfolio</a></li>
+                <li><a data-page="contact">Contact</a></li>
+                <li><a data-page="competences">Compétences</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="content">
+        <h1>Compétences</h1>
+        <form id="skillsForm">
+            <h2>Ajouter une compétence</h2>
+            <label for="name">Nom de la compétence</label>
+            <input type="text" id="name" name="name">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+            <label for="level">Niveau</label>
+            <select id="level" name="level">
+                <option value="Débutant">Débutant</option>
+                <option value="Intermédiaire">Intermédiaire</option>
+                <option value="Avancé">Avancé</option>
+            </select>
+            <button type="submit">Ajouter</button>
+        </form>
+
+        <p id="skillsInfo"></p>
+
+        <h2>Liste des compétences</h2>
+        <ul id="skillsList"></ul>
+        <footer><span id="copyright"></span></footer>
+    </main>
+    <div id="cur"></div>
+</body>
+
+</html>
