@@ -5,8 +5,8 @@ store*.png
 gradlew
 gradlew.bat
 twa-*.*
-/gradle/*
-/app/*
+/gradle
+/app
 *.keystore
 *.aab
 *.apk
