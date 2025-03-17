@@ -1,0 +1,30 @@
+Options -Indexes
+
+# Activer le module de réécriture
+RewriteEngine On
+
+# Rediriger les URLs sans extension vers les fichiers HTML ou PHP correspondants
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^https?://10.56.8.52 [NC]
+RewriteRule \.(jpe?g|png|gif|bmp|webp|svg)$ - [NC,F,L]
+
+ErrorDocument 500 /portfolio/errors/500.html
+ErrorDocument 403 /portfolio/errors/403.html
+ErrorDocument 404 /portfolio/errors/404.html
+
+<IfModule mod_headers.c>
+  BrowserMatch MSIE is-msie
+  Header set X-UA-Compatible IE=edge env=is-msie
+  Header set X-XSS-Protection "1; mode=block"
+  Header set X-Frame-Options "DENY"
+  Header set Content-Security-Policy "frame-ancestors 'self' 10.56.8.52;"
+
+  # En-têtes HTTP pour le cache
+  <FilesMatch "\.(html|s?css|m?js|mjs|gif|png|jpe?g|svg|webp)$">
+    Header set Cache-Control "max-age=31536000, public"
+    Header set Expires "Thu, 31 Dec 2037 23:55:55 GMT"
+  </FilesMatch>
+</IfModule>

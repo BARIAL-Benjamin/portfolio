@@ -58,9 +58,9 @@
 
 @mixin highlight($y: 944px, $x: 604px) {
     &{
-        -webkit-mask-image: url('/assets/grunge.webp');
+        -webkit-mask-image: url('../assets/grunge.webp');
         -webkit-mask-size: $y $x;
-        mask-image: url('/assets/grunge.webp');
+        mask-image: url('../assets/grunge.webp');
         mask-size: $y $x;
     }
 }

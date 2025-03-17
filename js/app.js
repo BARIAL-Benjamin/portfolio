@@ -1,7 +1,7 @@
 /** Page actuel */
 const currentPage = (() => {
   const e = location.pathname.split("/");
-  const p = e.find((p) => p.includes(".html")) ?? e[e.length - 1];
+  const p = e.find(p => p.includes(".html")) ?? e[e.length - 1];
   return p.includes(".html") ? p.replace(".html", "") : p;
 })();
 
@@ -47,8 +47,8 @@ const header = document.querySelector("header");
 const navUL = header.querySelector("nav > ul");
 const links = navUL.querySelectorAll("body > header a");
 
-links.forEach((link) => {
-  link.href = `/${link.dataset.page}`;
+links.forEach(link => {
+  link.href = `/portfolio/pages/${link.dataset.page}`;
   link.classList.toggle(
     "line",
     link.dataset.page === currentPage ||
@@ -112,7 +112,8 @@ if (currentPage === "contact") {
           cursor.style.backgroundImage = "none";
         });
         el.addEventListener("mouseout", () => {
-          cursor.style.backgroundImage = 'url("/assets/cursor.webp")';
+          const cursorLink = location.href.includes('pages') ? '../assets/cursor.webp' : './assets/cursor.webp';
+          cursor.style.backgroundImage = `url("${cursorLink}")`;
         });
       });
   }

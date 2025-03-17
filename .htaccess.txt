@@ -3,16 +3,21 @@ Options -Indexes
 # Activer le module de réécriture
 RewriteEngine On
 
-# Rediriger les URLs sans extension vers les fichiers HTML correspondants
+# Rediriger les URLs sans extension vers les fichiers HTML ou PHP correspondants
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 # RewriteRule ^/(.+)\.(js|css)$ /$2/$1.min.$2 [L]
 # RewriteRule ^/(.+)\.mjs$ /lib/$1.min.mjs [L]
 
-# à mettre à la fin des réécritures
+# Vérifier si le fichier HTML existe
+RewriteCond %{DOCUMENT_ROOT}/pages/$1.html -f
 RewriteRule ^([^/]+)/?$ /pages/$1.html [L]
-RewriteRule ^$ /index.html [L]
 
+# Vérifier si le fichier PHP existe
+RewriteCond %{DOCUMENT_ROOT}/pages/$1.php -f
+RewriteRule ^([^/]+)/?$ /pages/$1.php [L]
+
+RewriteRule ^$ /index.html [L]
 
 RewriteCond %{HTTP_REFERER} !^$
 RewriteCond %{HTTP_REFERER} !^https?://(.+\.)?benjamin-pro.com [NC]

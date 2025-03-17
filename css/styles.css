@@ -12,7 +12,7 @@
 
 @font-face {
   font-family: "Veteran TypeWriter";
-  src: url("/fonts/veteran_typewriter.ttf"), local("veteran_typewriter.ttf") format("ttf");
+  src: url("fonts/veteran_typewriter.ttf"), local("veteran_typewriter.ttf") format("ttf");
 }
 html,
 body {
@@ -37,7 +37,7 @@ body {
   left: 1px;
   width: 32px;
   height: 32px;
-  background-image: url("/assets/cursor.webp");
+  background-image: url("../assets/cursor.webp");
   background-size: cover;
   z-index: 20000;
 }
@@ -48,7 +48,7 @@ body {
   left: 75%;
   width: 12.5em;
   height: 12.5em;
-  background-image: url("/assets/postit.webp");
+  background-image: url("../assets/postit.webp");
   background-size: cover;
   filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.6666666667));
   padding: 1em;
@@ -164,9 +164,9 @@ span.bold {
 }
 
 h1, h2, h3, h4, h5, h6, p, span, input, textarea, button {
-  -webkit-mask-image: url("/assets/grunge.webp");
+  -webkit-mask-image: url("../assets/grunge.webp");
   -webkit-mask-size: 629.3333333333px 402.6666666667px;
-  mask-image: url("/assets/grunge.webp");
+  mask-image: url("../assets/grunge.webp");
   mask-size: 629.3333333333px 402.6666666667px;
 }
 
@@ -308,20 +308,20 @@ label::after {
   border-radius: 20px;
 }
 #hardskills > ul > li > ul > li > progress::-webkit-progress-value {
-  -webkit-mask-image: url("/assets/grunge.webp");
-  -webkit-mask-size: 118px 466px;
-  mask-image: url("/assets/grunge.webp");
-  mask-size: 118px 466px;
+  -webkit-mask-image: url("../assets/grunge.webp");
+  -webkit-mask-size: 120px 522px;
+  mask-image: url("../assets/grunge.webp");
+  mask-size: 120px 522px;
 }
 #hardskills > ul > li > ul > li > progress::-moz-progress-bar {
   background-color: #000;
   border-radius: 20px;
 }
 #hardskills > ul > li > ul > li > progress::-moz-progress-bar {
-  -webkit-mask-image: url("/assets/grunge.webp");
-  -webkit-mask-size: 556px 313px;
-  mask-image: url("/assets/grunge.webp");
-  mask-size: 556px 313px;
+  -webkit-mask-image: url("../assets/grunge.webp");
+  -webkit-mask-size: 51px 391px;
+  mask-image: url("../assets/grunge.webp");
+  mask-size: 51px 391px;
 }
 
 .cards {
@@ -367,6 +367,7 @@ label::after {
     display: grid;
     padding: 0;
     margin: 0;
+    overflow-y: auto;
   }
   #cur {
     display: none;
@@ -399,9 +400,9 @@ label::after {
     align-self: flex-end;
   }
   span.mark {
-    -webkit-mask-image: url("/assets/grunge.webp");
+    -webkit-mask-image: url("../assets/grunge.webp");
     -webkit-mask-size: 944px 604px;
-    mask-image: url("/assets/grunge.webp");
+    mask-image: url("../assets/grunge.webp");
     mask-size: 944px 604px;
   }
   span.stamp {

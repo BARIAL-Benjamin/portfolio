@@ -6,7 +6,7 @@
 @font-face {
     font-family: "Veteran TypeWriter";
     src:
-        url("/fonts/veteran_typewriter.ttf"),
+        url("fonts/veteran_typewriter.ttf"),
         local("veteran_typewriter.ttf") format("ttf");
 }
 
@@ -54,7 +54,7 @@ body {
     left: 1px;
     width: 32px;
     height: 32px;
-    background-image: url("/assets/cursor.webp");
+    background-image: url("../assets/cursor.webp");
     background-size: cover;
     z-index: 20000;
 }
@@ -65,7 +65,7 @@ body {
     left: 75%;
     width: 12.5em;
     height: 12.5em;
-    background-image: url("/assets/postit.webp");
+    background-image: url("../assets/postit.webp");
     background-size: cover;
     filter: drop-shadow(0 0 10px #000a);
     padding: 1em;

@@ -4,10 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Page d'accueil de mon site portfolio. Vous pouvez y retrouver une petite présentation, mon CV, mes projets.">
+    <meta name="description"
+        content="Page d'accueil de mon site portfolio. Vous pouvez y retrouver une petite présentation, mon CV, mes projets.">
     <meta name="keywords" content="accueil, portfolio, cv, projets, présentations, benjamin, cia">
 
-    <meta property="og:description" content="Page d'accueil de mon site portfolio. Vous pouvez y retrouver une petite présentation, mon CV, mes projets." />
+    <meta property="og:description"
+        content="Page d'accueil de mon site portfolio. Vous pouvez y retrouver une petite présentation, mon CV, mes projets." />
     <meta property="og:locale" content="fr_FR" />
     <meta property="og:site_name" content="Benjamin BARIAL" />
     <meta property="og:image" content="https://benjamin-pro.com/assets/favicon-full.webp" />
@@ -23,17 +25,23 @@
     <meta name="twitter:card" content="summary" />
     <meta property="twitter:domain" content="benjamin-pro.com">
     <meta property="twitter:url" content="https://benjamin-pro.com">
-    <meta property="twitter:description" content="Page d'accueil de mon site portfolio. Vous pouvez y retrouver une petite présentation, mon CV, mes projets." />
+    <meta property="twitter:description"
+        content="Page d'accueil de mon site portfolio. Vous pouvez y retrouver une petite présentation, mon CV, mes projets." />
     <meta property="twitter:title" content="Portfolio | Accueil" />
     <meta property="twitter:creator" content="Benjamin BARIAL" />
     <meta property="twitter:image" content="https://benjamin-pro.com/assets/favicon-full.webp" />
 
     <link rel="canonical" href="https://benjamin-pro.com/">
-    <link rel="shortcut icon" href="/assets/favicon.webp" type="image/webp">
-    <link rel="stylesheet" href="/css/styles.css">
-    <script type="module" src="/js/download.js" defer></script>
-    <script type="module" src="/js/app.js" defer></script>
-    <script>if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').then(() => { console.log('SW enregistré !') }).catch(e => { console.error(e) })</script>
+    <link rel="shortcut icon" href="./assets/favicon.webp" type="image/webp">
+    <link rel="stylesheet" href="./css/styles.css">
+    <script type="module" src="./js/app.js" defer></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('./sw.js')
+                .then(() => console.log('SW enregistré !'))
+                .catch(e => console.error(e))
+        }
+    </script>
     <title>Benjamin BARIAL | Accueil</title>
 </head>
 
@@ -41,23 +49,24 @@
     <header id="postit">
         <nav>
             <ul>
-                <li><a data-page="">Accueil</a></li>
-                <li><a data-page="cv">CV</a></li>
-                <li><a data-page="portfolio">Portfolio</a></li>
-                <li><a data-page="contact">Contact</a></li>
-                <li><a data-page="competences">Compétences</a></li>
+                <li><a data-page="../">Accueil</a></li>
+                <li><a data-page="cv.html">CV</a></li>
+                <li><a data-page="portfolio.html">Portfolio</a></li>
+                <li><a data-page="contact.html">Contact</a></li>
+                <li><a data-page="competences.html">Compétences</a></li>
+                <li><a data-page="messagerie.php">Messagerie</a></li>
             </ul>
         </nav>
     </header>
     <main id="content">
         <header>
-            <img src="/assets/favicon-full.webp" alt="Logo">
+            <img src="./assets/favicon-full.webp" alt="Logo">
             <span class="stamp bigger rot" data-rot="14">Confidentiel</span>
         </header>
         <h1 id="portfolio">portfolio</h1>
         <section>
             <div>
-                <img src="/images/photo.webp" alt="photo moi" width="100px" height="100px">
+                <img src="./images/photo.webp" alt="photo moi" width="100px" height="100px">
             </div>
             <div>
                 <article>
@@ -105,7 +114,7 @@
             <span class="stamp rot" data-rot="-15">CIA</span>
             <span class="mark">(Conception Intégration Application)</span>
         </section>
-        <footer><span id="copyright"></span><a href="/portfolio.apk" target="_blank" download>Télécharger l'app</a>
+        <footer><span id="copyright"></span><a href="./portfolio.apk" target="_blank" download>Télécharger l'app</a>
         </footer>
     </main>
     <div id="cur"></div>
